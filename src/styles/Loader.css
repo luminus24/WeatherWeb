@@ -1,0 +1,99 @@
+.loader-container{
+   display: flex;
+   height: 40vh;
+   width: 100vw;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+.loader {
+   position: relative;
+   transform: scale(2);
+   border-radius: 50%;
+   border: 2px solid;
+   width: 30px;
+   height: 30px;
+   color: #ff904f;
+   margin: 30px;
+}
+
+.loader::after {
+   position: absolute;
+   width: 0px;
+   height: 10px;
+   display: block;
+   border-left: 2px solid #ff904f;
+   content: '';
+   left: 14px;
+   border-radius: 1px;
+   top: 4px;
+   animation-duration: 1s;
+}
+
+.loader::before {
+   position: absolute;
+   width: 0px;
+   height: 10px;
+   display: block;
+   border-left: 2px solid #ff904f;
+   content: '';
+   left: 14px;
+   border-radius: 1px;
+   top: 4px;
+   animation-duration: 40s;
+}
+
+.loader::before,.loader::after {
+   transform-origin: bottom;
+   animation-name: dial;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+@keyframes dial {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+.loader-text {
+   font-size: 1.5rem;
+   font-variant: small-caps;
+   font-weight: 900;
+   background: conic-gradient(
+      #dff2ae 0 25%,
+      #ff904f 25% 50%,
+      #feefe7 50% 75%,
+      #ffde2b 75%
+   );
+   background-size: 200% 200%;
+   animation: animateBackground 4.5s ease-in-out infinite;
+   color: transparent;
+   background-clip: text;
+   -webkit-background-clip: text;
+}
+
+@keyframes animateBackground {
+   25% {
+      background-position: 0 100%;
+   }
+
+   50% {
+      background-position: 100% 100%;
+   }
+
+   75% {
+      background-position: 100% 0%;
+   }
+
+   100% {
+      background-position: 0 0;
+   }
+}
